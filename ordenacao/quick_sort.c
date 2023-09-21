@@ -12,32 +12,53 @@ void quick_sort(int* arr, int ini, int fim){
  
   int i = ini;
   int j = fim;
-
+  bool i_flag =  false;
+  bool j_flag = false;
   while(i <= j)
   {
-
-    while(arr[i] < pivo){
-        i++;
+    if(arr[i] < pivo){
+       i++;
+    } else{
+        i_flag = true;
     }
 
-    while(arr[j] > pivo){
-        j--;
+     if(arr[j] > pivo){
+       j--;
+    }else{
+        j_flag = true;
     }
-
-    if(i <= j){
+  
+    if((j_flag && i_flag)){
         temp = arr[i];
         arr[i] = arr[j];
         arr[j]= temp;
         i ++;
-        j --;     
+         j --;  
+       i_flag = false;
+       j_flag = false;   
     } 
+
+
   }
 
    quick_sort(arr,ini,j);
    quick_sort(arr,i,fim);   
 
 }
+/* Análise de complexidade
 
+
+
+
+
+
+
+
+
+
+
+
+*/
 
 
 
@@ -55,7 +76,7 @@ int main(){
 
 int* arr1 =(int*) malloc(sizeof(int)* N );
 
-int arr2[N] = {2,3,8,9,0,9};
+int arr2[N] = {2,3,8,9,0,9}; /// array auxiliar para toda vez que testar não precisar escrever
 
 for (int  i = 0; i < N; i++)
 {
