@@ -54,8 +54,13 @@ então o número de chamadas para que n elementos sejam analizados como pivôs e
 
 2^k = n  // aplicando log (base 2) de ambos os lados temos: ( log(2^k) = log(n) ) = k * log(2) na base 2, então temos k=log(n)
 
-portanto o número de iterações do algoritmo é log(n)
+portanto o número de iterações do algoritmo é log(n), essa é a profundidade da "árvore" de divisões do vetor
 
+A cada iteração nos temos N - 2^k operações de comparação, devido ao fato de que ao modo em que os pivos são selecionados,
+menos elementos dos vetores são percorridos nas sucessivas chamadas de função, porém para a notação Big O, N-Constante, sendo 2^k em uma certa iteração uma constante numérica,
+então N-2^k = N para a análise de complexidade.
+
+Portanto a complexidade final do algoritmo é (N * log(N) )
 
 
 
