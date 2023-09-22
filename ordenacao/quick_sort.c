@@ -1,7 +1,7 @@
 #include "stdlib.h"
 #include "stdio.h"
 #include "stdbool.h"
-#define N 6
+#define N 8
 
 
 
@@ -33,7 +33,7 @@ void quick_sort(int* arr, int ini, int fim){
         arr[i] = arr[j];
         arr[j]= temp;
         i ++;
-         j --;  
+        j --;  
        i_flag = false;
        j_flag = false;   
     } 
@@ -45,11 +45,16 @@ void quick_sort(int* arr, int ini, int fim){
    quick_sort(arr,i,fim);   
 
 }
-/* Análise de complexidade
+/* Análise de complexidade:  Seja n o número de elementos do vetor e k o número de iterações do algoritmo
 
+a cada iteração do algoritmo é identificado um pivô e os outros elementos são movidos de modo que o pivô, 
+ao final de uma iteração está na posição correta ordenada. Tambem a cada chamada da função, por recursão outras 2 são chamadas.
 
+então o número de chamadas para que n elementos sejam analizados como pivôs e colocados nos seus lugares é:
 
+2^k = n  // aplicando log (base 2) de ambos os lados temos: ( log(2^k) = log(n) ) = k * log(2) na base 2, então temos k=log(n)
 
+portanto o número de iterações do algoritmo é log(n)
 
 
 
@@ -76,7 +81,7 @@ int main(){
 
 int* arr1 =(int*) malloc(sizeof(int)* N );
 
-int arr2[N] = {2,3,8,9,0,9}; /// array auxiliar para toda vez que testar não precisar escrever
+int arr2[N] = {2,8,7,3,0,9,9,9}; /// array auxiliar para toda vez que testar não precisar escrever
 
 for (int  i = 0; i < N; i++)
 {
