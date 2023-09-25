@@ -52,6 +52,13 @@ então o número de chamadas para que n elementos sejam analizados como pivôs e
 
 portanto o número de iterações do algoritmo é log(n)
 
+A cada iteração nos temos N - 2^k operações de comparação, k sendo a profundidade da chamada recursiva, devido ao fato de que ao modo em que os pivos são selecionados,
+menos elementos dos vetores são percorridos nas sucessivas chamadas de função, porém para a notação Big O, N-Constante, sendo 2^k em uma certa iteração uma constante numérica,
+então N-2^k = N para a análise de complexidade.
+
+
+Portanto a complexidade final do algoritmo é (N * log(N) )
+
 
 
 
