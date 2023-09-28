@@ -1,7 +1,7 @@
 #include "stdlib.h"
 #include "stdio.h"
 #include "stdbool.h"
-#define N 8
+#define N 10
 
 void shell_sort(int* arr, int Num){
     int h =1;
@@ -35,8 +35,9 @@ int main(){
 
 
 int* arr1 =(int*) malloc(sizeof(int)* N );
+     if (arr1 == NULL) exit(1);
 
-int arr2[N] = {25,57,48,37,12,92,86,33}; /// array auxiliar para toda vez que testar não precisar escrever
+int arr2[N] = {25,57,1,37,1281,92,86,162,57,89}; /// array auxiliar para toda vez que testar não precisar escrever
 
 for (int  i = 0; i < N; i++)
 {
@@ -52,6 +53,6 @@ for (int i = 0; i < N; i++)
 
 
 
-
+free(arr1);
 
 }
