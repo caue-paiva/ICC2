@@ -8,7 +8,7 @@ typedef int Q_type;
 
 typedef struct {
    int start;
-   int end;
+   int end;  //teste 
    int total;
    Q_type list[N];
 } QUEUE;
