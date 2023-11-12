@@ -5,10 +5,10 @@ void printa_arr(int arr[], int n,int flag){
    // printf("\n");
     for (int i = 0; i < n; i++)
     {
-        printf(" %d",arr[i]);
+        printf("%d ",arr[i]);
     }
-    if(flag)
-      printf(" ");
+   // if(flag)
+   //   printf(" ");
 }
 
 void cocktail_sort(int arr[], int n){

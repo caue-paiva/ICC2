@@ -3,19 +3,23 @@
 
 
 void printa_arr(int arr[], int n){
-    printf("\n");
+   
     for (int i = 0; i < n; i++)
     {
-        printf(" %d",arr[i]);
+        printf("%d ",arr[i]);
     }
+     printf("\n");
+   // printf(" ");
 }
 void printa_arr2(int arr[], int n, int numero_remo){
-    printf("\n");
+  
     for (int i = 0; i < n; i++)
     {
-        printf(" %d",arr[i]);
+        printf("%d ",arr[i]);
     }
-    printf(" -%d ",numero_remo);
+   
+    printf("- %d",numero_remo);
+     printf("\n");
 }
 
 void rearranja_heap(int vetor[], int indice, int tamanho){
@@ -60,11 +64,17 @@ void heap_sort(int vetor[], int tamanho){
     tam_heap--;
     printa_arr2(vetor,tam_heap,aux);
     rearranja_heap(vetor,0,tam_heap);
-    printa_arr(vetor,tam_heap);
-    printf("\n");
-    
+    if(tam_heap > 1){
+        printa_arr(vetor,tam_heap);
+        printf("\n");
+    }else{
+        printf("\n");
+        printa_arr(vetor,tamanho);
+       // printf(" ");
+        break;
+    } ////GAGS
   }
-  
+   ///teste
 }
 
 
