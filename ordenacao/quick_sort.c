@@ -5,39 +5,72 @@
 
 
 
-void quick_sort(int* arr, int ini, int fim){
+void quick_sort(int arr[], int ini, int fim){
   if(ini >= fim){return;}
   int pivo = arr[(ini+fim)/2];
   int temp;
  
   int i = ini;
   int j = fim;
-  bool i_flag =  false;
-  bool j_flag = false;
+
   while(i <= j)
   {
-    if(arr[i] < pivo){
+    while(arr[i] < pivo){
        i++;
-    } else{
-        i_flag = true;
-    }
-     if(arr[j] > pivo){
+    } 
+    
+    while(arr[j] > pivo){
        j--;
-    }else{
-        j_flag = true;
-    } 
-    if((j_flag && i_flag)){
-        temp = arr[i];
-        arr[i] = arr[j];
-        arr[j]= temp;
-        i ++;
-        j --;  
-       i_flag = false;
-       j_flag = false;   
-    } 
+    }
+   
+   if (i <= j){
+    temp = arr[i];
+    arr[i] = arr[j];
+    arr[j]= temp;
+    i ++;  //isso é para que a partição da direita não conte com o index do pivo
+    j --;    //isso é para que a partição da esquerda não conte com o index do pivo
+   }
+  
   }
    quick_sort(arr,ini,j);
    quick_sort(arr,i,fim);   
+}
+
+void quicksort2(int arr[], int comeco ,int fim){
+    if(comeco>= fim){return;}
+    int i = comeco;
+    int j = fim;
+    int pivo = arr[(fim+comeco)/2];
+    while (i <= j){
+
+        while(arr[i] < pivo){
+            i++;
+        }
+        while(arr[j]> pivo){
+            j--;
+        }
+
+        if (i <= j){
+            int temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+            i++;
+            j--;
+        }
+    }
+    quicksort2(arr,i,fim);
+    quicksort2(arr,comeco,j);
+}
+
+int main(){
+
+    int arr[N] = {2,4,6,19,10,98,82,4};
+    
+    quicksort2(arr,0,N-1);
+
+    for (int i =0; i < N; i++){
+        printf("%d ", arr[i]);
+    }
 }
 /* Análise de complexidade: caso em que o pivô é selecionado no meio
 
@@ -79,8 +112,7 @@ Portanto a complexidade final do algoritmo é (N * log(N) )
 
 
 
-
-int main(){
+/*int main(){
 
 int* arr1 =(int*) malloc(sizeof(int)* N );
 
@@ -100,4 +132,4 @@ for (int i = 0; i < N; i++)
 }
 
 
-}
+}*/
