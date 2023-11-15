@@ -1,8 +1,9 @@
+
 #include "stdio.h"
 #include "stdlib.h"
 #include "time.h"
-#define N 10000
-#define INDEX_N 50
+#define N 8
+#define INDEX_N 4
 
 const int RANGE = (N/INDEX_N); //constante do range que cada indicide ira segurar
 
@@ -83,36 +84,19 @@ int busca_tradiciona(int arr_sequencial [], int buscado){
 }
 
 int main(){
-  int arr[N];
-
-  for(int i =0 ; i < N; i++){
-    arr[i] = rand()%N +1; //enche o array 
-  }
+  int arr[N] = {1,7,9,17,82,1,5,8};
+ 
+ 
   quick_sort(arr,0,N-1); //quick sort no vetor
 
   sublista* lista_index = cria_lista_indexada(arr); //cria lista indexada e retorna um ponteiro para essa struct
  
-  float inicial_busca_trad = clock(); //tempo antes de executar
-  for (int i =0 ; i < 50; i++){
-      int valor = rand()%N+1; //valor aleatorio para testar busca
-      for (int j = 0; j < 1000; j++)
-      {
-          busca_tradiciona(arr,valor); //func de busca tradicional
-      }
-  
-  }
-  float final_busca_trad = clock(); //tempo dps de executar
-
-  printf("busca tradicional levou %f segundos \n", (final_busca_trad - inicial_busca_trad )/CLOCKS_PER_SEC); //subtrai o tempo depois e antes e divide pelo CLOCK_PER_SEC, achando o tempo em ms que levou
 
   float inicial_busca_index = clock(); //msm coisa com a busca indexada
-  for (int i =0 ; i < 50; i++){
-      int valor = rand()%N+1;
-      for (int j = 0; j < 1000; j++)
-      {
-        busca_indexada(lista_index,valor);//func de busca indexada com ranges
-      }
-      
+  for (int i =0 ; i < N; i++){
+        int valor = arr[i];
+        if (busca_indexada(lista_index,valor) == -1) //func de busca indexada com ranges
+            printf("erro ");  
   }
   float final_busca_index = clock();
 
@@ -121,12 +105,8 @@ int main(){
   free(lista_index); //libera memória alocada para a lista indexada
 }
 
-/*Resultados da comparação em 5 tentativas
+/*Resultados da comparação
 
-busca indexada levou em média 0.0062 segundos
-
-busca normal levou em média  0.18575 segundos
-
-isso mostra que a busca indexada é muito mais eficiente que a normal em vetores ordenados, oq pode levar a significantes melhorias na performance
+busca indexada levou 0.00
 
 */
