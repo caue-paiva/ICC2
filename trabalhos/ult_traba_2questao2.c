@@ -4,12 +4,13 @@
 #define N 10000
 #define INDEX_N 50
 
-const int RANGE = (N/INDEX_N); //constante do range que cada indicide ira segurar
-
+const int RANGE = (N/INDEX_N); //constante do range que cada indice ira segurar
+ 
+//essa struct é o indice que guarda um range de valores da lista original e armazena o seu maior elemento
 typedef struct {
   int arr[N/INDEX_N]; //vetor dentro de cada indice da lista indexada
   int max_elemento; //maior elemento daquele indice (dentro daquele range)
-} sublista;
+} sublista;  
 
 void quick_sort(int* arr, int ini, int fim){ //quick sort padrao
     if(ini >= fim){return;}
@@ -42,14 +43,14 @@ sublista* cria_lista_indexada(int arr_sequencial[]){
             exit(1);
 
       int indice_externo = -1;
-      for (int i = 0 ; i < N; i++){  //roda por todo o arrayy original
+      for (int i = 0 ; i < N; i++){  //roda por todo o array original
          if(i%(RANGE) == 0){  //se ele chegar num multiplo do range(200,400) ele aumenta o index da lista indexada
             indice_externo++; 
             int index_maior_elemento = ((RANGE) * (indice_externo +1)) - 1; //index do maior elemento (ex 199, 399...)
             sublista indice = {.max_elemento = arr_sequencial[index_maior_elemento]};  //cria uma struct sublista e inicia o max elemento 
-            array_indexado[indice_externo] = indice; //coloca essa struct num array de structs
+            array_indexado[indice_externo] = indice; //coloca essa indice num array de indices
          }
-         array_indexado[indice_externo].arr[i%RANGE] = arr_sequencial[i];  //copia o array normal na lista indexada
+         array_indexado[indice_externo].arr[i%RANGE] = arr_sequencial[i];  //copia o array normal no indice certo
       }
       return array_indexado;
 }
@@ -90,7 +91,7 @@ int main(){
   }
   quick_sort(arr,0,N-1); //quick sort no vetor
 
-  sublista* lista_index = cria_lista_indexada(arr); //cria lista indexada e retorna um ponteiro para essa struct
+  sublista* lista_index = cria_lista_indexada(arr); //cria lista indexada e retorna um ponteiro para esse array de struct
  
   float inicial_busca_trad = clock(); //tempo antes de executar
   for (int i =0 ; i < 50; i++){
