@@ -106,7 +106,32 @@ Portanto a complexidade final do algoritmo é (N * log(N) )
 
 
 
+void quick_sort2(int arr[], int come, int fim){
+    if (i>=j)
+      return;
+    int i = come;
+    int j = fim;
+    int pivo = arr[(come+fim)/2];
 
+    while (i <= j){
+
+        while (arr[j] > pivo)
+           j--;
+        while(arr[i]< pivo)
+           i++;
+
+        if(i<=j){
+            int temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+            j--;
+            i++;
+        }
+    }
+
+    quick_sort2(arr,come,j);
+    quick_sort2(arr,i,fim);
+}
 
 
 
