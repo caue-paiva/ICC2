@@ -1,3 +1,10 @@
+/*
+ Questao 2 do exercicio 18
+ O objetivo desse código é comparar uma busca indexada com uma busca sequencial normal e ver qual é mais eficiente
+
+*/
+
+
 #include "stdio.h"
 #include "stdlib.h"
 #include "time.h"
@@ -99,8 +106,7 @@ int main(){
       for (int j = 0; j < 1000; j++)
       {
           busca_tradiciona(arr,valor); //func de busca tradicional
-      }
-  
+      } 
   }
   float final_busca_trad = clock(); //tempo dps de executar
 
@@ -112,8 +118,7 @@ int main(){
       for (int j = 0; j < 1000; j++)
       {
         busca_indexada(lista_index,valor);//func de busca indexada com ranges
-      }
-      
+      } 
   }
   float final_busca_index = clock();
 
@@ -124,10 +129,10 @@ int main(){
 
 /*Resultados da comparação em 5 tentativas
 
-busca indexada levou em média 0.0062 segundos
+  busca indexada levou em média 0.0062 segundos
 
-busca normal levou em média  0.18575 segundos
+  busca normal levou em média  0.18575 segundos
 
-isso mostra que a busca indexada é muito mais eficiente que a normal em vetores ordenados, oq pode levar a significantes melhorias na performance
+  isso mostra que a busca indexada é muito mais eficiente que a normal em vetores ordenados, oq pode levar a significantes melhorias na performance
 
 */
