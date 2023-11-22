@@ -101,13 +101,40 @@ Portanto a complexidade final do algoritmo é (N * log(N) )
 
 */
 
+void quick_sort3(int arr[], int ini, int fim){
+    if(ini >= fim) return;
+    int i = ini;
+    int j =fim;
+    int pivo = arr[ ((ini+fim)/2) ];
+
+    while (i<=j){
+
+        while(arr[i] < pivo)
+          i++;
+        while (arr[j] > pivo)
+          j--;
+        
+        if(i<=j){
+            int temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] =temp;
+            i++;
+            j--;
+        }
+    }
+
+    quick_sort3(arr,ini,j);
+    quick_sort3(arr,i,fim);
+
+}
+
 
 
 
 
 
 void quick_sort2(int arr[], int come, int fim){
-    if (i>=j)
+    if (come>=fim)
       return;
     int i = come;
     int j = fim;
