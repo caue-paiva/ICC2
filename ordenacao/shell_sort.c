@@ -30,6 +30,23 @@ void shell_sort(int* arr, int Num){
     }
 }
 
+void shell_sort2(int* arr2){
+    int gap = N/2;
+    int j;
+    int temp;
+    while (gap > 0){
+        for (int i = gap; i < N; i++){
+            j = i;
+            while( (j-gap) >= 0 && arr2[j-gap] > arr2[j]){
+                temp = arr2[j];
+                arr2[j] = arr2[j-gap];
+                arr2[j-gap] = temp;
+                j -= gap;
+            }
+        }
+        gap /= 2;
+    }
+}
 
 int main(){
 
@@ -44,7 +61,7 @@ for (int  i = 0; i < N; i++)
     arr1[i] = arr2[i];
 }
 
-shell_sort(arr1,N);
+shell_sort2(arr1);
 
 for (int i = 0; i < N; i++)
 {

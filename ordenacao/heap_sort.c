@@ -6,7 +6,7 @@
 void rearranja_heap(int*vetor, int indice, int tamanho){
     int dir,esq,maior;
     dir = 2*indice +1;
-    esq =2* indice +2;
+    esq = 2* indice +2;
 
     if(esq < tamanho && vetor[esq]> vetor[indice]){
         maior = esq;

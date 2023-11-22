@@ -4,9 +4,7 @@
 #define N 5
 
 int bubble_sort2(int*arr){
-
-    for (int i = N-1; i >= 0 ; i--){
-        
+    for (int i = N-1; i >= 0 ; i--){   
         for (int j = 0; j < i; j++)
         {
             if(arr[j]> arr[j+1]){
@@ -15,12 +13,11 @@ int bubble_sort2(int*arr){
                 arr[j] = temp;
             }
         }
-        
     }
 }
 
 int bubble_sort(int*arr){
-    int swap_count =1;
+    int swap_count = 1;
     int iter = 0;
     while(swap_count != 0){
         swap_count = 0;
